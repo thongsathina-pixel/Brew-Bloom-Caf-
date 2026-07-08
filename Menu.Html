@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bloom Café</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: Georgia, serif;
+    background: #f5e6d3;
+    color: #4b2e1e;
+  }
+
+  header {
+    background: #4b2e1e;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  }
+
+  .brand h1 { font-size: 22px; letter-spacing: 1px; }
+  .brand p  { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+
+  nav { display: flex; gap: 30px; }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+  }
+
+  nav a:hover {
+    opacity: 1;
+    border-bottom-color: #d4a97a;
+  }
+
+
+  #home {
+    height: 520px;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("cafe.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 40px;
+  }
+
+  #home h2 {
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  #home p {
+    font-size: 17px;
+    opacity: 0.9;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    background: #2d190a;
+    color: rgba(255, 255, 255, 0.854);
+    padding: 13px 32px;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .btn:hover { background: #a0713f; transform: translateY(-1px); }
+
+
+  section {
+    padding: 70px 50px;
+    text-align: center;
+  }
+
+  section h2 {
+    font-size: 30px;
+    margin-bottom: 35px;
+    color: #4b2e1e;
+  }
+
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .card {
+    background: white;
+    width: 210px;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  .card h3 { font-size: 18px; margin-bottom: 8px; }
+  .card p  { color: #8b5e3c; font-size: 16px; font-weight: bold; }
+
+  
+  #reservation { background: #edddc9; }
+
+  .form-wrap {
+    width: 340px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .form-wrap input,
+  .form-wrap textarea {
+    padding: 13px 15px;
+    border-radius: 10px;
+    border: 1px solid #c9a882;
+    background: white;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-wrap input:focus,
+  .form-wrap textarea:focus { border-color: #8b5e3c; }
+
+  .form-wrap textarea { min-height: 100px; resize: vertical; }
+
+
+
+  
+  #location { background: #edddc9; }
+  #location p { font-size: 16px; line-height: 2; }
+
+  footer {
+    background: #4b2e1e;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+ 
+<header>
+  <div class="brand">
+    <h1>☕ Brew & Bloom Café</h1>
+    <p>Modern Coffee Experience</p>
+    </div>
+  <nav>
+    <a href="Index.Html">Home</a>
+    <a href="Menu.html">Menu</a>
+    <a href="Reservation.html">Reservation</a>
+   
+  </nav>
+</header>
+
+
+
+<section id="menu">
+  <h2>Our Menu</h2>
+
+  <div class="menu-tabs">
+    <button class="tab-btn active" data-tab="coffee">☕️ Coffee</button>
+    <button class="tab-btn" data-tab="cake">🍰 Cakes & Desserts</button>
+  </div>
+
+  COFFEE 
+  <div class="cards tab-content active" id="coffee">
+    <div class="card" data-name="Cappuccino" data-price="3.50">
+      <figure>
+            <img src="https://tse1.mm.bing.net/th/id/OIP.IercD-MddHIyim4RUWkwOAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3">
+      <h3> Cappuccino</h3><p>$3.50</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+      </figure>
+    </div>
+    <div class="card" data-name="Iced Coffee" data-price="3.00">
+      <figure>
+            <img src="https://img.freepik.com/premium-photo/glass-iced-coffee-with-black-straw-white-background_787273-1954.jpg?w=2000">
+      <h3> Iced Coffee</h3><p>$3.00</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Matcha Latte" data-price="3.75">
+      <figure>
+        <img src="https://th.bing.com/th/id/OIP.GI_zpjtKoDnSvA-hGlhJUQHaHa?w=198&h=198&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3">
+      </figure>
+      <h3> Matcha Latte</h3><p>$3.75</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Espresso" data-price="2.50">
+      <figure>
+        <img src="https://tse3.mm.bing.net/th/id/OIP._K8uL04e5iEBkOdeeA0vRAHaF8?w=626&h=502&rs=1&pid=ImgDetMain&o=7&rm=3">
+      </figure>
+      <h3> Espresso</h3><p>$2.50</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Americano" data-price="2.75">
+      <figure>
+        <img src="https://img.freepik.com/premium-photo/glass-fresh-cool-black-cola-with-ice-cubes-refreshing-drink-water-drops-white-background_920128-1775.jpg">
+      </figure>
+      <h3> Americano</h3><p>$2.75</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Caramel Macchiato" data-price="4.25">
+    <figure>
+        <img src="https://static.vecteezy.com/system/resources/previews/030/707/681/large_2x/of-a-coffee-drink-isolated-on-white-background-generative-ai-photo.jpg">
+      </figure>
+      <h3> Caramel Macchiato</h3><p>$4.25</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Flat White" data-price="3.75">
+        <figure>
+        <img src="https://static.vecteezy.com/system/resources/previews/036/161/240/original/ai-generated-cup-of-hot-flat-white-coffee-on-transparent-background-free-png.png">
+      </figure>
+          <h3> Flat White</h3><p>$3.75</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Mocha" data-price="4.00">
+      <figure>
+        <img src="https://png.pngtree.com/png-clipart/20241122/original/pngtree-mocha-png-image_17285364.png">
+      <h3> Mocha</h3><p>$4.00</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </figure>
+    </div>
+    <div class="card" data-name="Cold Brew" data-price="3.50">
+      <figure>
+        <img src="https://img.freepik.com/premium-photo/artistic-nitro-cold-brew-coffee-white-background_899449-325168.jpg?w=2000">
+      </figure>
+      <h3> Cold Brew</h3><p>$3.50</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+  </div>
+
+  CAKE
+  <div class="cards tab-content" id="cake">
+    <div class="card" data-name="Chocolate Cake" data-price="4.00">
+      <figure>
+        <img src="https://tse3.mm.bing.net/th/id/OIP.uWydwo5kfapMsecr9SRiKAHaLH?w=480&h=720&rs=1&pid=ImgDetMain&o=7&rm=3">
+      </figure>
+      <h3> Chocolate Cake</h3><p>$4.00</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Cheesecake" data-price="4.50">
+      <figure>
+        <img src="https://res.cloudinary.com/hksqkdlah/image/upload/c_fill,dpr_2.0,f_auto,fl_lossy.progressive.strip_profile,g_faces:auto,h_368,q_auto:low/22870_sfs-foolproof-new-york-style-cheesecake-14">
+      </figure>
+      <h3> Cheesecake</h3><p>$4.50</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Croissant" data-price="2.50">
+      <figure>
+        <img src="https://tse3.mm.bing.net/th/id/OIP.ebQvx9oE7JqmJl5HfxsJSwHaEJ?w=960&h=538&rs=1&pid=ImgDetMain&o=7&rm=3">
+      </figure>
+       <h3> Croissant</h3><p>$2.50</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Tiramisu" data-price="4.75">
+      <figure>
+        <img src="https://www.kingarthurbaking.com/sites/default/files/2023-03/Tiramisu_1426.jpg">
+      </figure>
+      <h3> Tiramisu</h3><p>$4.75</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Blueberry Muffin" data-price="3.00">
+      <figure>
+        <img src="https://ohsnapmacros.com/wp-content/uploads/elementor/thumbs/blueberry-protein-muffins-10-q6blnqkt25d28ssx5t2elh53r8izyhk6zupfogvfgg.jpg">
+      </figure>
+      <h3> Blueberry Muffin</h3><p>$3.00</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+    <div class="card" data-name="Brownie" data-price="3.25">
+    <figure>
+        <img src="https://img.freepik.com/premium-photo/brownie-with-scoop-vanilla-ice-cream_419341-123376.jpg">
+      </figure>
+      <h3> Brownie</h3><p>$3.25</p>
+      <button class="add-btn" onclick="addToCart(this)">+ Add</button>
+    </div>
+  </div>
+
+  ORDER 
+  <div class="order-summary" id="order-summary" style="display:none;">
+    <h3>🛒 Your Order <span id="cart-count">(0 items)</span></h3>
+    <ul id="cart-list"></ul>
+    <div class="order-total">
+      Total: <strong id="cart-total">$0.00</strong>
+    </div>
+    <div class="order-actions">
+      <button class="btn-clear" onclick="clearCart()"> Clear</button>
+      <button class="btn-order" onclick="placeOrder()"> Place Order</button>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  body { font-family: 'Inter', sans-serif; padding: 20px; background: #F7F1E4; }
+  #menu h2 { font-size: 22px; color: #2B1B14; margin-bottom: 16px; }
+
+  .menu-tabs { display:flex; gap:10px; margin-bottom:16px; }
+  .tab-btn {
+    padding:9px 18px; border-radius:999px; border:1.5px solid #ccc;
+    background:#fff; font-size:14px; cursor:pointer; font-weight:600;
+  }
+  .tab-btn.active { background:#2B1B14; color:#E0B97A; border-color:#2B1B14; }
+  .tab-content { display:none; }
+  .tab-content.active { display:flex; flex-wrap:wrap; gap:12px; }
+
+  .card {
+    background:#fff; border:1px solid #e0d6c8; border-radius:14px;
+    padding:14px; width:calc(50% - 6px); box-sizing:border-box;
+  }
+  .card h3 { font-size:14px; color:#2B1B14; margin-bottom:4px; }
+  .card p  { font-size:13px; color:#B5562B; font-weight:700; margin-bottom:8px; }
+  .add-btn {
+    width:100%; padding:7px; border-radius:8px; border:none;
+    background:#2B1B14; color:#E0B97A; font-weight:700;
+    font-size:13px; cursor:pointer;
+  }
+  .add-btn.added { background:#B5562B; }
+
+  .order-summary {
+    margin-top:20px; background:#2B1B14; border-radius:18px; padding:18px;
+  }
+  .order-summary h3 { color:#E0B97A; font-size:16px; margin-bottom:12px; }
+  .order-summary h3 span { font-size:13px; color:rgba(224,185,122,0.6); }
+  #cart-list { list-style:none; padding:0; margin:0; }
+  #cart-list li {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 0; border-bottom:1px solid rgba(255,255,255,0.08);
+    color:#F7F1E4; font-size:13px;
+  }
+  #cart-list li:last-child { border-bottom:none; }
+  .cart-item-left { display:flex; align-items:center; gap:8px; }
+  .cart-qty { display:flex; align-items:center; gap:6px; }
+  .cart-qty button {
+    width:22px; height:22px; border-radius:6px; border:none;
+    background:rgba(255,255,255,0.15); color:#E0B97A;
+    font-size:14px; font-weight:700; cursor:pointer; line-height:1;
+  }
+  .cart-qty span { color:#E0B97A; font-weight:700; min-width:16px; text-align:center; }
+  .cart-item-price { color:#E0B97A; font-weight:700; font-size:13px; }
+  .order-total {
+    text-align:right; color:rgba(224,185,122,0.7);
+    font-size:14px; margin-top:12px; padding-top:10px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .order-total strong { color:#E0B97A; font-size:18px; margin-left:6px; }
+  .order-actions { display:flex; gap:10px; margin-top:14px; }
+  .btn-clear {
+    flex:1; padding:11px; border-radius:10px; border:1.5px solid rgba(255,255,255,0.2);
+    background:transparent; color:#F7F1E4; font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .btn-order {
+    flex:2; padding:11px; border-radius:10px; border:none;
+    background:#B5562B; color:#fff; font-size:14px; font-weight:700; cursor:pointer;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  let cart = {};
+
+  function addToCart(btn) {
+    const card  = btn.closest('.card');
+    const name  = card.dataset.name;
+    const price = parseFloat(card.dataset.price);
+    cart[name] ? cart[name].qty++ : cart[name] = { price, qty: 1 };
+    btn.textContent = '✓ Added';
+    btn.classList.add('added');
+    setTimeout(() => { btn.textContent = '+ Add'; btn.classList.remove('added'); }, 800);
+    renderCart();
+  }
+
+  function changeQty(name, delta) {
+    if (!cart[name]) return;
+    cart[name].qty += delta;
+    if (cart[name].qty <= 0) delete cart[name];
+    renderCart();
+  }
+
+  function renderCart() {
+    const summary = document.getElementById('order-summary');
+    const list    = document.getElementById('cart-list');
+    const total   = document.getElementById('cart-total');
+    const count   = document.getElementById('cart-count');
+    const keys    = Object.keys(cart);
+    if (keys.length === 0) { summary.style.display = 'none'; return; }
+    summary.style.display = 'block';
+    let totalPrice = 0, totalQty = 0;
+    list.innerHTML = keys.map(name => {
+      const { price, qty } = cart[name];
+      totalPrice += price * qty;
+      totalQty   += qty;
+      return `<li>
+        <div class="cart-item-left">
+          <div class="cart-qty">
+            <button onclick="changeQty('${name}',-1)">−</button>
+            <span>${qty}</span>
+            <button onclick="changeQty('${name}',1)">+</button>
+          </div>
+          ${name}
+        </div>
+        <span class="cart-item-price">$${(price*qty).toFixed(2)}</span>
+      </li>`;
+    }).join('');
+    total.textContent = '$' + totalPrice.toFixed(2);
+    count.textContent = `(${totalQty} item${totalQty>1?'s':''})`;
+  }
+
+  function clearCart() { cart = {}; renderCart(); }
+
+  function placeOrder() {
+    if (Object.keys(cart).length === 0) return;
+    alert('✅ Order placed! Thank you ☕');
+    clearCart();
+  }
+</script>
+
+</body>
+</html>
